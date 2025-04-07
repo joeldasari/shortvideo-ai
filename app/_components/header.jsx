@@ -29,7 +29,7 @@ export default function Header() {
   const router = useRouter();
 
   return (
-    <nav className="navbar padding">
+    <nav className="navbar padding-navbar">
       <Link href="/">
         <h1 className="text-xl sm:text-2xl font-semibold flex items-center gap-2">
           <Play className="bg-purple-500" />

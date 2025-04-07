@@ -13,7 +13,6 @@ import { useState } from "react";
 export default function Topic({ topic, handleChange }) {
   const options = [
     "Custom Prompt",
-    "Random Story",
     "Fun Facts",
     "Thriller",
     "Horror",
@@ -25,6 +24,7 @@ export default function Topic({ topic, handleChange }) {
     "Sci-Fi",
     "Mystery",
     "Drama",
+    "Random Story",
   ];
 
   const [selectedOption, setSelectedOption] = useState(null);

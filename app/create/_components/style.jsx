@@ -1,43 +1,63 @@
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+"use client";
 
-export default function Style() {
+import { useState } from "react";
+
+export default function Style({ handleChange }) {
+  const [selectedOption, setSelectedOption] = useState(null);
   const options = [
-    "Custom Prompt",
-    "Random Story",
-    "Fun Facts",
-    "Thriller",
-    "Horror",
-    "Historical",
-    "Comedy",
-    "Romance",
-    "Adventure",
-    "Fantasy",
-    "Sci-Fi",
-    "Mystery",
-    "Drama",
+    {
+      name: "Realistic",
+      image: "/realistic.png",
+    },
+    {
+      name: "Cartoon",
+      image: "/cartoon.png",
+    },
+    {
+      name: "Comic",
+      image: "/comic.png",
+    },
+    {
+      name: "GTA",
+      image: "/gta.png",
+    },
   ];
   return (
     <div className="flex flex-col gap-2">
-      <h1 className="text-xl font-bold text-purple-400">Content</h1>
-      <p className="text-gray-400">What is the topic of your video?</p>
-      <Select>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Content Type" />
-        </SelectTrigger>
-        <SelectContent>
-          {options.map((option) => (
-            <SelectItem key={option} value={option}>
-              {option}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
+      <h1 className="text-xl font-bold text-purple-400">Style</h1>
+      <p className="text-gray-400">Select your video style</p>
+
+      <div className="flex items-center gap-2">
+        {options.map((option) => (
+          <div
+            key={option.name}
+            className={`${
+              selectedOption === option.name
+                ? "border-2 border-purple-400"
+                : "border-2"
+            } flex flex-col items-center gap-2 p-2 rounded-2xl cursor-pointer hover:scale-105 transition-all duration-300`}
+            onClick={() => {
+              setSelectedOption(option.name);
+              handleChange("style", option.name);
+            }}
+          >
+            <img
+              src={option.image}
+              alt={option.name}
+              className="size-14 sm:size-28 object-cover rounded-2xl"
+            />
+            <span
+              className={`${
+                selectedOption === option.name
+                  ? "text-purple-400"
+                  : "text-accent-foreground"
+              } text-xs sm:text-sm`}
+            >
+              {option.name}
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

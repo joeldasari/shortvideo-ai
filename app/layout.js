@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Provider from "@/provider/provider";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
   variable: "--inter",
@@ -19,7 +20,10 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.png" />
       </head>
       <body className={`${inter.className} antialiased`}>
-        <Provider>{children}</Provider>
+        <Provider>
+          {children}
+          <Toaster richColors />
+        </Provider>
       </body>
     </html>
   );

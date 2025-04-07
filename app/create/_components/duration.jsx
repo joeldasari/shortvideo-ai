@@ -6,29 +6,19 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export default function Duration() {
-  const options = [
-    "Custom Prompt",
-    "Random Story",
-    "Fun Facts",
-    "Thriller",
-    "Horror",
-    "Historical",
-    "Comedy",
-    "Romance",
-    "Adventure",
-    "Fantasy",
-    "Sci-Fi",
-    "Mystery",
-    "Drama",
-  ];
+export default function Duration({ handleChange }) {
+  const options = ["30 Seconds", "60 Seconds"];
   return (
     <div className="flex flex-col gap-2">
-      <h1 className="text-xl font-bold text-purple-400">Content</h1>
-      <p className="text-gray-400">What is the topic of your video?</p>
-      <Select>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Content Type" />
+      <h1 className="text-xl font-bold text-purple-400">Duration</h1>
+      <p className="text-gray-400">Select the duration of your video?</p>
+      <Select
+        onValueChange={(value) => {
+          handleChange("duration", value);
+        }}
+      >
+        <SelectTrigger className="w-full">
+          <SelectValue placeholder="Duration" />
         </SelectTrigger>
         <SelectContent>
           {options.map((option) => (

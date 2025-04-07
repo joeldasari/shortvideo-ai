@@ -123,17 +123,17 @@
 
 /* Custom Styles */
 
-.padding {
+.padding-navbar {
   @apply px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 py-4;
+}
+
+.padding {
+  @apply px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 py-8;
 }
 
 .navbar {
   @apply h-[10vh] flex items-center justify-between border-b sticky top-0 z-10 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/70;
 }
-
-/* .header-text {
-  @apply text-xl xl:text-2xl p-2;
-} */
 
 .footer {
   @apply border-t flex items-center justify-center gap-1 h-[10vh];
